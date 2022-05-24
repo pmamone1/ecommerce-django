@@ -35,12 +35,13 @@
 				
                 {% if product.stock < 5 and product.stock > 0 %}
                     <div class="price-wrap mt-2">
-                        <div class="price mt-1">${{ product.price }} <span style="color:blue;font-size:0.8em;margin-left:1vw;">Solo quedan {{ product.stock }} disponibles</span></div> <!-- price-wrap.// -->
+                        <div class="price mt-1 precio">${{ product.price }} <span style="color:blue;font-size:0.8em;margin-left:1vw;">Solo quedan {{ product.stock }} disponibles</span></div> <!-- price-wrap.// -->
                     </div> <!-- stock-wrap.// -->
-                {% elif product.stock <=0 %}
-                    <h6 style:"color:red";>No hay stock disponible</h6>
+                
+                {% elif product.stock <= 0 %}
+                    <h6 style="color:red;font-size:0.8em">No hay stock disponible</h6>
                 {% else %}
-                    <div class="price mt-1">${{ product.price }}</div> <!-- price-wrap.// -->
+                    <div class="price mt-1 precio">${{ product.price }}</div> <!-- price-wrap.// -->
                 {% endif %}
                 
                 
