@@ -15,6 +15,10 @@ class Cart(models.Model):
     def __str__(self):
         return self.cart_id
     
+    class Meta:
+        verbose_name = 'Pedido'
+        verbose_name_plural = 'Pedidos'
+    
 class CartItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     variations = models.ManyToManyField(Variation, blank=True)
@@ -28,3 +32,7 @@ class CartItem(models.Model):
     
     def __unicode__(self):
         return self.product
+
+    class Meta:
+        verbose_name = 'Item - Pedido'
+        verbose_name_plural = 'Items - Pedidos'

@@ -21,6 +21,10 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name
 
+    class Meta:
+        verbose_name = 'Publicacion'
+        verbose_name_plural = 'Publicaciones'
+
 class VariationManager(models.Manager):
     def talles(self):
         return super(VariationManager,self).filter(variation_category='talle',is_active=True)
@@ -51,3 +55,7 @@ class Variation(models.Model):
     def __str__(self):
         return self.variation_category+ ": "+ self.variation_value
 
+    class Meta:
+        verbose_name = 'Edicion - Producto'
+        verbose_name_plural = 'Ediciones - Productos'
+        

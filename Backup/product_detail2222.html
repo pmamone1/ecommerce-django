@@ -32,46 +32,42 @@
     <p>{{ single_product.description }}</p>
     
     <hr>
-    {% if single_product.variation_set.colors %}
+
     <div class="row">
             <div class="item-option-select">
                 <h6>Selecciona un Color</h6>
                 <select class="form-control" name="color" required>
-                  <option value="" disabled selected>Seleccione un color</option>  
+                  <option value="" disabled selected>Seleccione</option>  
                   {% for i in single_product.variation_set.colors %} 
                   <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
+                    
                   {% endfor %}
                 </select> 
             </div>
         </div> <!-- row.// -->
-        {% endif %}
-        {% if single_product.variation_set.talles %}
         <div class="row">
-                <div class="item-option-select">
-                    <h6>Selecciona un Talle</h6>
-                    <select class="form-control" name="talle" required>
-                      <option value="" disabled selected>Seleccione un talle</option>  
-                      {% for i in single_product.variation_set.talles %} 
-                      <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
-                      {% endfor %}
-                    </select> 
-                </div>
+            <div class="item-option-select">
+                <h6>Selecciona el talle</h6>
+                <select class="form-control" name="talle" required>
+                  <option value="" disabled selected>Seleccione</option>  
+                  {% for i in single_product.variation_set.talles %} 
+                <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
+                  {% endfor %}
+              </select> 
+            </div>
             </div> <!-- row.// -->
-            {% endif %}
-            {% if single_product.variation_set.ediciones %}
             <div class="row">
-                    <div class="item-option-select">
-                        <h6>Selecciona una edicion</h6>
-                        <select class="form-control" name="edicion" required>
-                          <option value="" disabled selected>Seleccione una edición</option>  
-                          {% for i in single_product.variation_set.ediciones %} 
-                          <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
-                          {% endfor %}
-                        </select> 
-                    </div>
-                </div> <!-- row.// -->
-                {% endif %}
-
+              <div class="item-option-select">
+                  <h6>Edicion</h6>
+                  <select class="form-control" name="edicion" required>
+                    <option value="" disabled selected>Seleccione</option>  
+                    {% for i in single_product.variation_set.ediciones %} 
+                  <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
+                    {% endfor %}
+                </select> 
+              </div>
+        </div> <!-- row.// -->
+        
         {% if single_product.stock < 5 and single_product.stock > 0 %}
         
             <span style="color:blue;">Solo quedan {{ single_product.stock }} disponibles</span>
